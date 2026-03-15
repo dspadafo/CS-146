@@ -26,6 +26,8 @@ main {
 
 .input-field{
     max-width: 80%;
+    border: none;
+    border-radius: 2px;
 }
 
 #signup-box{
@@ -39,7 +41,7 @@ main {
 }
 
 #submit-button{
-    max-width: 100%;
+    max-width: 80%;
     border: 0px solid #5E6472;
     background-color: #aed9e0;
     padding: 2% 10%;
