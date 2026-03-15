@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+    font-size: 16px;
+    font-family: Outfit
+}
+
+html{
+    background-color: #aed9e0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+}
+
+#form-items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.input-field{
+    max-width: 80%;
+}
+
+#signup-box{
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #f0efeb;
+    border-radius: 10px;
+    min-width: 50vw;
+    max-width: 80vw;
+    padding: 20px;
+}
+
+#submit-button{
+    max-width: 100%;
+    border: 0px solid #5E6472;
+    background-color: #aed9e0;
+    padding: 2% 10%;
+    border-radius: 5px;
+    margin-bottom: 10px
+}
+
+#submit-button:hover{
+    cursor:pointer;
+    background-color:#B5DDE3;
+    transition:ease-in-out 0.2s;
+}
+
+
+#submit-button:active{
+    cursor:pointer;
+    background-color:#89C8D2;
+    transition:ease-in-out 0.5s;
+}
+
+a{
+    display:block;
+    font-size: .8rem;
+    text-decoration: none;
+    color: #028090;
+}
