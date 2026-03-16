@@ -31,8 +31,8 @@ img{
     align-items: center;
     min-width: 20vw;
     max-width: 30vw;
-    min-height: 20vw;
-    max-height: 30vw;
+    min-height: 10vw;
+    max-height: 20vw;
     padding: 20px;
     border-radius: 50%;
 }
@@ -41,7 +41,6 @@ img{
 will add the javascript to make it interactive later*/
 .image-container{
     position: relative;
-    transform-style: perserve-3rd;
     transform: persepctive(1000px) rotateY(0deg);
     transition: transform 0.7s;
 }
