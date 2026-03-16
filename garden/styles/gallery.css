@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+    font-size: 16px;
+    font-family: Outfit
+}
+
+html{
+    background-color: #aed9e0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+}
+
+#gallery-box{
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #f0efeb;
+    border-radius: 10px;
+    min-width: 50vw;
+    max-width: 80vw;
+    padding: 20px;
+}
+
+img{
+    align-items: center;
+    min-width: 20vw;
+    max-width: 30vw;
+    min-height: 20vw;
+    max-height: 30vw;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+/*used a rotating gallery tutorial on youtube for this code, 
+will add the javascript to make it interactive later*/
+.image-container{
+    position: relative;
+    transform-style: perserve-3rd;
+    transform: persepctive(1000px) rotateY(0deg);
+    transition: transform 0.7s;
+}
+
+.image-container span{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: rotateY(calc(var(--i)*45deg)) translateZ(400px);
+}
+
+.image_container span img {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.image_container:hover{
+    background-color: #B5DDE3;;
+}
+
+#btn-container {
+    position: relative;
+    width: 80%;
+}
+
+#btn {
+    max-width: 80%;
+    border: 0px solid #5E6472;
+    background-color: #aed9e0;
+    padding: 2% 10%;
+    border-radius: 5px;
+    margin-bottom: 10px
+}
+
+#btn:hover{
+    cursor:pointer;
+    background-color:#B5DDE3;
+    transition:ease-in-out 0.2s;
+}
+
+#btn:active{
+    cursor:pointer;
+    background-color:#89C8D2;
+    transition:ease-in-out 0.5s;
+}
+
+a{
+    font-size: .8rem;
+    text-decoration: none;
+    color: #028090;
+    padding: 2%;
+    margin-top: 50px;
+}
