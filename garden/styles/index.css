@@ -4,6 +4,8 @@
     box-sizing: border-box;
     font-size: 16px;
     font-family: Outfit;
+    padding: 0;
+    margin: 0;
 }
 
 html{
@@ -18,14 +20,13 @@ body {
 header {
     text-align: center;
     background-color: #f0efeb;
-    padding: auto;
+    padding-top: 10px;
 }
 
 header h1{
     font-size: 2rem;
-    margin-bottom: 10px;
+    margin: 10px 0;
     color: #028090;
-    margin-bottom: 10px;
 
 }
 
@@ -33,7 +34,7 @@ header p{
     margin: 0;
 }
 
-body > div{
+body > nav{
     text-align: center;
     background-color: #f0efeb;
     padding: 15px;
@@ -76,28 +77,38 @@ h2{
 }
 
 #timer{
-    max-width: 50%;
+    max-width: 80%;
     border: 0px solid #5E6472;
     background-color: #aed9e0;
     padding: 2% 10%;
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 50px;
-    margin: auto;
+}
+
+#timer:hover{
+    cursor:pointer;
+    background-color:#B5DDE3;
+    transition:ease-in-out 0.2s;
+}
+
+#timer:active{
+    cursor:pointer;
+    background-color:#89C8D2;
+    transition:ease-in-out 0.5s;
 }
 
 img{
     align-items: center;
     min-width: 20vw;
     max-width: 30vw;
-    min-height: 20vw;
-    max-height: 30vw;
     padding: 20px;
     border-radius: 50%;
 }
 
 img:hover{
     background-color: #B5DDE3;;
+    cursor: pointer;
 }
 
 a{

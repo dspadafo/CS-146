@@ -69,7 +69,7 @@ will add the javascript to make it interactive later*/
     width: 80%;
 }
 
-#btn {
+.btn {
     max-width: 80%;
     border: 0px solid #5E6472;
     background-color: #aed9e0;
