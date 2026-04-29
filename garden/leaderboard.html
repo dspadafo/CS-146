@@ -23,17 +23,29 @@
     <main>
         <section id="leaderboard-box">
             <h1>Leaderboard</h1>
+
+            <form id="search-form" autocomplete="off">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search players..."
+                    aria-label="Search players"
+                />
+            </form>
+
             <div id="leaderboard-header">
                 <span>Name</span>
                 <span>Score</span>
             </div>
             <ol id="leaderboard-items">
-                <li><span>Edwin</span><span>4,720</span></li>
-                <li><span>Lauren</span><span>3,615</span></li>
-                <li><span>Khadijatu</span><span>2,990</span></li>
-                <li><span>Dominic</span><span>2,101</span></li>
-
+                <li><span class="player-name">Edwin</span><span>4,720</span></li>
+                <li><span class="player-name">Lauren</span><span>3,615</span></li>
+                <li><span class="player-name">Khadijatu</span><span>2,990</span></li>
+                <li><span class="player-name">Dominic</span><span>2,101</span></li>
             </ol>
+
+            <p id="no-results">No players found.</p>
+
             <a href="./index.html">Take me back!</a>
         </section>
     </main>
@@ -41,5 +53,7 @@
     <footer>
         <p>2026 Garden</p>
     </footer>
+
+    <script src="./scripts/leaderboard.js"></script>
 </body>
 </html>
