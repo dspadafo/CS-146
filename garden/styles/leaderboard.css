@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: Outfit, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: #aed9e0;
+}
+
+body {
+    color: #5E6472;
+    font-size: 16px;
+}
+
+header {
+    text-align: center;
+    background-color: #f0efeb;
+    padding: 10px 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #028090;
+}
+
+header p {
+    margin: 0;
+}
+
+nav {
+    text-align: center;
+    background-color: #f0efeb;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #028090;
+    padding: 4px 8px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 20px;
+}
+
+#leaderboard-box {
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #f0efeb;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+#leaderboard-box h2 {
+    font-size: 1.5rem;
+    color: #028090;
+    margin-bottom: 10px;
+}
+
+#leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto 4px auto;
+    font-size: 0.75rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+}
+
+#leaderboard-items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    list-style-position: inside;
+    text-align: left;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#leaderboard-items li {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    text-align: center;
+    background-color: #f0efeb;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    #leaderboard-box {
+        width: 85%;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #leaderboard-box {
+        width: 95%;
+        padding: 14px;
+    }
+
+    #leaderboard-header,
+    #leaderboard-items {
+        width: 95%;
+    }
+}
