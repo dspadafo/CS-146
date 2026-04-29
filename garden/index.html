@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/headerfooter.css">
+    <script src="./scripts/index.js" async></script>
 </head>
 <body>
     <header>
@@ -20,6 +22,7 @@
     </nav>
 
     <main>
+        <!--
         <section id="hero">
             <h2>Welcome to Garden</h2>
             <p>
@@ -27,20 +30,21 @@
                 plant growth so you can check long term progress
             </p>
         </section>
-
+        -->
         <section id="timer-box">
             <!-- timer will be implemented using javascript later on -->
-            <h2>Pomodoro Timer</h2>
+
+            <!-- <h2>Pomodoro Timer</h2> -->
             <!-- tree will be swapped out -->
             <img src="./images/tree-placeholder.png" alt="Illustration of a tree representing plant growth">
-            <input id="timer" type="button" value="25:00">
+            <p id="timer">25:00</p>
             <p>Complete a focus session to help your garden grow.</p>
         </section>
 
         <section id="features">
             <h2>Features</h2>
-            <div class="features-grid">
-                <div class="features">
+            <div id="features-grid">
+                <div class="indiv-feature">
                     <h3>Focus Sessions</h3>
                     <p>
                         Use a 25-minute study session layout based on the Pomodoro technique
@@ -48,7 +52,7 @@
                     </p>
                 </div>
 
-                <div class="features">
+                <div class="indiv-feature">
                     <h3>Plant Growth Motivation</h3>
                     <p>
                         Every completed study cycle contributes to the growth of your virtual plants,
@@ -56,14 +60,14 @@
                     </p>
                 </div>
 
-                <div class="features">
+                <div class="indiv-feature">
                     <h3>Plant Gallery</h3>
                     <p>
                         Unlock new plants over time and start to build a collection
                     </p>
                 </div>
 
-                <div class="features">
+                <div class="indiv-feature">
                     <h3>Progress Tracking</h3>
                     <p>
                         The design of this app encourages you to come back regularly and see your progress
@@ -71,7 +75,7 @@
                 </div>
             </div>
         </section>
-
+        <!-- can put somewhere else lowkey -->
         <section id="preview">
             <h2>Quick Preview</h2>
             <article>
@@ -82,6 +86,7 @@
             </article>
         </section>
 
+        <!-- shorten, put near features
         <section id="about_app">
             <h2>Why This App Matters</h2>
             <p>
@@ -89,6 +94,7 @@
                 Regular timers feel boring and repetitive — this is a new way to visualize your actual goals and growth.
             </p>
         </section>
+        -->
     </main>
 
     <footer>
