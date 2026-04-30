@@ -4,6 +4,7 @@
     <title>Garden | Gallery</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
     <link rel="stylesheet" href="./styles/gallery.css">
     <link rel="stylesheet" href="./styles/headerfooter.css">
 </head>
@@ -25,26 +26,36 @@
     <main>
         <section id="gallery-box">
             <h1>Plants to Collect</h1>
-            <div class="image-container">
-                <!-- will be carouseled. hopefully. also replaced with acnh sprites -->
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-                    <img src="./images/sunflower.png" alt="placeholder flower">
-            </div>
-
-            <!--buttons don't work yet, will use for when the gallery becomes interactive-->
-            <input class="btn" type="button" value="Previous">
-            <input class="btn" type="button" value="Next">
+            <!-- will be carouseled. hopefully. also replaced with acnh sprites -->
+            <section id="image-carousel" class="splide" aria-label="Plants to Collect">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img src="./images/Black_Cosmos_NH_Icon.png" alt="placeholder flower">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/Black_Cosmos_NH_Icon.png" alt="placeholder flower">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/Black_Cosmos_NH_Icon.png" alt="placeholder flower">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/Black_Cosmos_NH_Icon.png" alt="placeholder flower">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/Black_Cosmos_NH_Icon.png" alt="placeholder flower">
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
         </section>
     </main>
     <footer>
         <p>2026 Garden</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+    <script src="./scripts/gallery.js"></script>
 </body>
 </html>

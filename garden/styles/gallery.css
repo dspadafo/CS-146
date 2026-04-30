@@ -58,30 +58,12 @@ h2 {
     cursor: pointer;
 }
 
-#btn-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.btn {
-    border: none;
-    background-color: #aed9e0;
-    padding: 10px 30px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #B5DDE3;
-    transition: ease-in-out 0.2s;
-}
-
-.btn:active {
-    background-color: #89C8D2;
-    transition: ease-in-out 0.5s;
+.splide__slide img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
 }
 
 /*      Tablet */
