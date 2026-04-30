@@ -75,6 +75,11 @@ h2 {
     .image-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .splide__slide img {
+        width: 260px;
+        height: 260px;
+    }
 }
 
 /* Phone*/
@@ -87,6 +92,11 @@ h2 {
     .image-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
+    }
+
+    .splide__slide img {
+        width: 180px;
+        height: 180px;
     }
 
     .btn {
