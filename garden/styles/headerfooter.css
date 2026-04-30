@@ -1,13 +1,14 @@
-header {
-    text-align: center;
-    /* background-color: #f0efeb; */
-    padding: 10px 20px;
+header{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 40px;
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 10px 0;
-    color: #028090;
+    font-weight: 500;
 }
 
 header p {
@@ -16,13 +17,18 @@ header p {
 
 nav {
     text-align: center;
-    /* background-color: #f0efeb; */
     padding: 15px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 4px 8px;
 }
 
 footer{
@@ -32,18 +38,28 @@ footer{
     text-align: center;
     /* background-color: #f0efeb; */
     padding: 15px;
+    align-self: flex-end;
 }
 
-
+/* phone */
 @media (max-width: 480px) {
+    header{
+        flex-direction: column;
+        align-items: center;
+    }
+    #title-tagline{
+        text-align: center;
+    }
+
     header h1 {
         font-size: 1.5rem;
     }
 
     nav {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: 6px;
+        font-size: 0.75rem;
     }
 }
 

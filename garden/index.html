@@ -10,35 +10,34 @@
 </head>
 <body>
     <header>
-        <h1>Garden</h1>
-        <p>Grow your plants while growing your productivity</p>
+        <div id="title-tagline">
+            <h1>Garden</h1>
+            <p>Grow plants, grow productivity</p>
+        </div>
+
+        <nav aria-label="main">
+            <a href="index.html">Home</a>
+            <a href="./leaderboard.html">Leaderboard</a>
+            <a href="./gallery.html">Gallery</a>
+            <a href="./signup.html">Sign up</a>
+        </nav>
     </header>
 
-    <nav aria-label="main">
-        <a href="index.html">Home</a>
-        <a href="./leaderboard.html">Leaderboard</a>
-        <a href="./gallery.html">Gallery</a>
-        <a href="./signup.html">Signup</a>
-    </nav>
-
     <main>
-        <!--
-        <section id="hero">
-            <h2>Welcome to Garden</h2>
-            <p>
-                Garden is an app that helps you stay on task by using a Pomodoro timer with
-                plant growth so you can check long term progress
-            </p>
-        </section>
-        -->
         <section id="timer-box">
-            <!-- timer will be implemented using javascript later on -->
-
-            <!-- <h2>Pomodoro Timer</h2> -->
             <!-- tree will be swapped out -->
-            <img src="./images/tree-placeholder.png" alt="Illustration of a tree representing plant growth">
+            <label for="task-input">Task: 
+                <input name="task-input" id="task-input" value="Task" placeholder="Task">
+            </label>
             <p id="timer">25:00</p>
-            <p>Complete a focus session to help your garden grow.</p>
+            <img src="./images/tree-placeholder.png" alt="Illustration of a tree representing plant growth">
+            <p id="tree-name"></p> <!-- will be filled with task name -->
+
+            <div id="timer-buttons">
+                <button id="reset-button">Reset Timer</button> <!-- add disclaimer that youll lose progress? -->
+                <button id="change-name-button">Change Name</button>
+                <button id="idk">i dont know bruh</button>
+            </div>
         </section>
 
         <section id="features">
