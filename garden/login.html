@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Garden | Log In<Input:btn></Input:btn></title>
+    <title>Garden | Log In</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="./styles/signuplogin.css">
     <link rel="stylesheet" href="./styles/headerfooter.css">
-    <script src="./scripts/login.js" async></script>
 </head>
 <body>
     <header>
@@ -19,14 +18,14 @@
             <a href="index.html">Home</a>
             <a href="./leaderboard.html">Leaderboard</a>
             <a href="./gallery.html">Gallery</a>
-            <a href="./login.html">Log in</a>
+            <a id="greet" href="./login.html"></a>
         </nav>
     </header>
 
     <main>
         <section id="login-box">
             <h1>Welcome back!</h1>
-            <form id="login-form"> <!-- hitting the submit button opens the main page again for now -->
+            <form id="login-form">
                 <label for="username">Username</label>
                 <input class="input-field" id="username" type="text" placeholder="D1GARDENER">
                 <label for="email">Email</label>
@@ -44,5 +43,7 @@
     <footer>
         <p>2026 Garden</p>
     </footer>
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/logout.js"></script>
 </body>
 </html>

@@ -5,12 +5,15 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
     
-    const users = JSON.parse(localStorage.getItem("user")) || [];
+    if(!(username && password)){
+        errorMsg.textContent = "All fields are required."   
+    }
+    const listOfUsers = JSON.parse(localStorage.getItem("listOfUsers")) || [];
 
-    const user = users.find(x => x.username === username && x.password === password);
-    
+    const user = listOfUsers.find(x => (x.username === username && x.password === password));
     if(user){
         localStorage.setItem("loggedInUser", JSON.stringify(user));
         

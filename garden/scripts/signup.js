@@ -18,11 +18,11 @@ form.addEventListener("submit", (e) => {
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const listOfUsers = JSON.parse(localStorage.getItem("listOfUsers")) || [];
 
-    users.push({username, email, password})
+    listOfUsers.push({username, email, password})
     
-    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("listOfUsers", JSON.stringify(listOfUsers));
 
     setTimeout(() => {
         window.location.href = "./index.html";
