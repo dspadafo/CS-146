@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: Outfit, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: #aed9e0;
+}
+
+body {
+    font-size: 16px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 20px;
+}
+
+#signup-box, #login-box {
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #C0E2E7;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 500px;
+    padding: 30px 20px;
+}
+
+#signup-box h1, #login-box h1 {
+    margin-bottom: 20px;
+}
+
+#signup-form, #login-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-bottom: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+#signup-form label, #login-form label  {
+    font-size: 0.9rem;
+    color: #5E6472;
+    align-self: flex-start;
+    margin-left: 10%;
+}
+
+.input-field {
+    width: 80%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.input-field:focus {
+    outline: none;
+    background-color: #FAF3DD;
+}
+
+#login-form > #email, #login-form > label[for="email"]{
+    display: none;
+}
+
+#submit-button, #reset-button {
+    width: 80%;
+    border: none;
+    background-color: #aed9e0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#submit-button:hover, #reset-button:hover {
+    background-color: #B5DDE3;
+    transition: ease-in-out 0.2s;
+}
+
+#submit-button:active, #reset-button:active {
+    background-color: #89C8D2;
+    transition: ease-in-out 0.5s;
+}
+
+#error{
+    color: red;
+}
+/* Tablet */
+@media (max-width: 768px) {
+    #signup-box, #login-box {
+        width: 80%;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    #signup-box, #login-box {
+        width: 95%;
+        padding: 20px 14px;
+    }
+
+    .input-field,
+    #submit-button, #reset-button {
+        width: 95%;
+    }
+
+    #form-items label {
+        margin-left: 2.5%;
+    }
+}

@@ -4,8 +4,9 @@
     <title>Garden | Signup</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="./styles/signup.css">
+    <link rel="stylesheet" href="./styles/signuplogin.css">
     <link rel="stylesheet" href="./styles/headerfooter.css">
+    <script src="./scripts/signup.js" async></script>
 </head>
 <body>
     <header>
@@ -25,17 +26,18 @@
     <main>
         <section id="signup-box">
             <h1>Create a Garden account</h1>
-            <form action="./index.html"> <!-- hitting the submit button opens the main page again for now -->
-                <div id="form-items">
-                    <label for="username">Username</label>
-                    <input class="input-field" id="username" placeholder="fl0wer_fan">
-                    <label for="email">Email</label>
-                    <input class="input-field" id="email" type="email" placeholder="greenthumb@gmail.com">
-                    <label for="password">Password</label>
-                    <input class="input-field" id="password" type="password" placeholder="TulipsR0ck!101">
-                </div>
-                <input id="submit-button" type="submit" value="Create account">
-                <br><a href="./index.html">Take me back!</a></br>
+            <form id="signup-form"> <!-- hitting the submit button opens the main page again for now -->
+                <label for="username">Username</label>
+                <input class="input-field" id="username" type="text" placeholder="fl0wer_fan">
+                <label for="email">Email</label>
+                <input class="input-field" id="email" type="email" placeholder="greenthumb@gmail.com">
+                <label for="password">Password</label>
+                <input class="input-field" id="password" type="password" placeholder="TulipsR0ck!101">
+                
+                <button id="submit-button" type="submit">Sign up</button>
+                <input id="reset-button" type="reset" value="Reset">
+                <p id="error"></p>
+                <p><a href="./index.html">Take me back!</a> Or, <a href="./login.html">log back in.</a></p>
             </form>
         </section>
     </main>
