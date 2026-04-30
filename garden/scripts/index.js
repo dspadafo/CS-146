@@ -2,6 +2,12 @@ var timerID = 0;
 
 const taskName = document.getElementById("task-input");
 const treeName = document.getElementById("tree-name");
+const timer = document.getElementById("timer");
+
+const changeButton = document.getElementById("change-name-button");
+const startButton = document.getElementById("start-button");
+const resetButton = document.getElementById("reset-button");
+
 taskName.addEventListener("keypress", (e) => {
     if(e.key === "Enter"){
         e.stopPropagation();
@@ -10,44 +16,37 @@ taskName.addEventListener("keypress", (e) => {
     }
 });
 
-const changeName = document.getElementById("change-name-button");
-changeName.addEventListener("click", (e) => {
-    e.stopPropagation();
-    taskName.parentElement.style.display = "inline-block";
-    treeName.textContent = "";
-});
+function startTime(duration, display){
+    var timer = duration, minutes, seconds;
+    if(!timerID){
+        timerID = setInterval(() => {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
 
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-function startTimer(duration, display){
-    var timer = 2, minutes, seconds;
-    timerID = setInterval(() => {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-        if(--timer < 0){
-            killTimer(timerID);
-        }
-    }, 1000);
+            display.textContent = minutes + ":" + seconds;
+            if(--timer < 0)     killTime();
+        }, 1000);
+    }
 }
 
-const killTimer = (id) => {
-    clearInterval(id);
+const killTime = () => {
+    clearInterval(timerID);
+    timerID = null;
 };
 
-const timerBox = document.getElementById("timer-box");
-const timer = document.querySelector("#timer")
-timerBox.addEventListener("click", (e) => {
-    e.stopPropagation();
-    startTimer(25*60, timer);
+startButton.addEventListener("click", (e) => {
+    startTime(25*60, timer);
 });
 
-const resetTimer = document.getElementById("reset-button");
-resetTimer.addEventListener("click", (e) => {
-    e.stopPropagation();
-    killTimer(timerID);
+resetButton.addEventListener("click", (e) => {
+    killTime();
     timer.textContent = "25:00";
+});
+
+changeButton.addEventListener("click", (e) => {
+    taskName.parentElement.style.display = "inline-block";
+    treeName.textContent = "";
 });
