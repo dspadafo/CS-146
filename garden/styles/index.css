@@ -16,20 +16,17 @@ body {
     font-size: 16px;
 }
 
-#title-tagline{
-        
-}
-
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    margin: auto;
 }
 
 section {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    /* background-color: #f0efeb; */
 }
 
 h2 {
@@ -44,22 +41,16 @@ h2 {
 
 #timer-box {
     text-align: center;
-    padding: 75px 0px;
+    padding: 50px 15px;
     background-color: #C0E2E7;
     width: 600px;
-    margin: 0 auto 25px;
+    margin: 0 auto;
     font-weight: 500;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 10px;
-    transition: all ease-in-out 0.2s;
-}
-
-#timer-box:hover{
-    transform: scale(1.025);
-    cursor: pointer;
 }
 
 #task-input{
@@ -81,23 +72,28 @@ h2 {
 
 img {
     display: block;
-    margin: 0 auto;
     width: 180px;
+}
+
+#timer-buttons{
+    display: flex;
+    justify-content: space-around;
+    column-gap: 5px;
 }
 
 #timer-buttons button{
     background: none;
     border: 1px black solid;
-    padding: 5px 10px;
+    padding: 10px 40px;
     border-radius: 5px;
     &:hover{
         cursor: pointer;
+        transform: scale(1.01);
     }
 }
 
-#features, #preview {
+#features {
     background-color: #C0E2E7;
-    width: 100%;
     margin: 0;
 }
 
@@ -124,26 +120,13 @@ a:hover {
 
 /*#Tablet*/
 @media (max-width: 768px) {
-    main {
-        width: 90%;
-    }
-
     #features-grid {
         grid-template-columns: 1fr;
     }
-
-    #timer-box{
-        width: 400px;
-    }
-
 }
 
 /*Phone*/
 @media (max-width: 480px) {
-    main {
-        width: 95%;
-    }
-    
     #timer {
         font-size: 2rem;
     }
@@ -151,7 +134,19 @@ a:hover {
     #timer-box {
         width: 250px;
     }
-    
+
+    #timer-buttons{
+        width: 200px;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 5px;
+    }
+
+    #timer-buttons button{
+        padding: 10px;
+        width: 100%;
+    }
+
     img {
         width: 55%;
     }
