@@ -1,114 +1,102 @@
-var timerID = 0, currentTime = 25*60, paused = false;
-const taskName = document.getElementById("task-input");
-const treeName = document.getElementById("tree-name");
-const timer = document.getElementById("timer");
+var timerID = null;
+var currentTime = 25 * 60;
+var paused = false;
 
-const changeButton = document.getElementById("change-name-button");
-const startButton = document.getElementById("start-button");
-const pauseButton = document.getElementById("pause-button");
-const resetButton = document.getElementById("reset-button");
+var timerDisplay = document.getElementById("timer");
+var taskInput = document.getElementById("task-input");
+var treeName = document.getElementById("tree-name");
+var startButton = document.getElementById("start-button");
+var resetButton = document.getElementById("reset-button");
+var changeButton = document.getElementById("change-name-button");
 
-// holding data for sessions
-let history = {
-    pomodoroRounds: 0,
-    score: 0
-}
-
-let sessionData = {
+var sessionData = {
     mode: "pomodoro",
-    pomodoroRounds: 0,
-    shortBreaks: 0,
-    longBreaks: 0
-}
+    pomodoroRounds: 0
+};
 
-// functions below
-function startTime(duration){
-    var timer = duration, minutes, seconds;
-    if(!timerID){
-        timerID = setInterval(() => {
-            currentTime--;
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-
+function startTime(duration) {
+    var remaining = duration;
+    if (!timerID) {
+        timerID = setInterval(function() {
+            var minutes = Math.floor(remaining / 60);
+            var seconds = remaining % 60;
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            this.timer.textContent = minutes + ":" + seconds;
-            if(--timer < 0){
+            timerDisplay.textContent = minutes + ":" + seconds;
+
+            remaining--;
+            currentTime = remaining;
+            if (remaining < 0) {
                 sessionDone();
-                return;
             }
         }, 1000);
     }
 }
 
-const killTime = () => {
+function killTime() {
     clearInterval(timerID);
     timerID = null;
-};
+}
 
-function switchMode(newMode){
-    let newTime;
-    // some might pomodoro differently. but a 20 minute break is necessary.
-    if (newMode === "shortBreak") newTime = 300;                // 5 min
-    else if(newMode === "longBreak") newTime = 1200;            // 20 min
-    else if(newMode === "pomodoro" && !paused) newTime = 1500;  // 25 min
+function switchMode(newMode) {
+    var newTime;
+    if (newMode === "shortBreak") newTime = 300;
+    else if (newMode === "longBreak") newTime = 1200;
+    else if (newMode === "pomodoro" && !paused) newTime = 1500;
     else newTime = currentTime;
 
     sessionData.mode = newMode;
-    // console.log(`Starting ${sessionData.mode} round with ${newTime} on the clock!`);     was for debugging purposes
-    startTime(newTime)
+    startTime(newTime);
 }
 
-/**
- * pomdoro -> break -> pomdoro -> break -> pomdoro -> break -> pomdoro -> long break
- */
-function sessionDone(){
+function sessionDone() {
     killTime();
-    console.log("done!");
-    if(sessionData.mode === "pomodoro"){
+    if (sessionData.mode === "pomodoro") {
         sessionData.pomodoroRounds++;
+        // Has 3 short breaks and then 1 long break
+        if (sessionData.pomodoroRounds % 4 === 0) {
+            switchMode("longBreak");
+        } else {
+            switchMode("shortBreak");
+        }
+    } else {
+        switchMode("pomodoro");
     }
-
-    if(sessionData.mode === "pomodoro"){        // time for a break!
-        if(sessionData.pomodoroRounds%4 === 0)
-            switchMode("longBreak"); 
-        else
-            switchMode("shortBreak");   
-    }
-    else switchMode("pomodoro");                // go back to studying.
 }
 
-startButton.addEventListener("click", () => {
-    if(startButton.textContent == "Start"){
+startButton.addEventListener("click", function() {
+    if (startButton.textContent === "Start") {
+        paused = false;
         switchMode(sessionData.mode);
         startButton.textContent = "Pause";
-        
-    } else{
+    } else {
         killTime();
         paused = true;
         startButton.textContent = "Start";
     }
 });
 
-// button event listeners
-resetButton.addEventListener("click", () => {
+resetButton.addEventListener("click", function() {
     killTime();
+    paused = false;
+    currentTime = 25 * 60;
+    timerDisplay.textContent = "25:00";
     startButton.textContent = "Start";
-    currentTime = 25*60;
-    timer.textContent = "25:00";
+    sessionData.mode = "pomodoro";
+    sessionData.pomodoroRounds = 0;
 });
 
-changeButton.addEventListener("click", () => {
-    taskName.parentElement.style.display = "inline-block";
+changeButton.addEventListener("click", function() {
+    // Label with the input
+    taskInput.parentElement.style.display = "block";
     treeName.textContent = "";
 });
 
-
-taskName.addEventListener("keypress", (e) => {
-    if(e.key === "Enter"){
-        e.stopPropagation();
-        treeName.textContent = taskName.value;
-        taskName.parentElement.style.display = "none";
+taskInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        treeName.textContent = taskInput.value.trim();
+        taskInput.parentElement.style.display = "none"; // Hides label
     }
 });
