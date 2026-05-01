@@ -14,7 +14,7 @@ function generateToken() {
     return crypto.randomUUID();
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
@@ -42,7 +42,7 @@ form.addEventListener("submit", (e) => {
     const hashedPassword = await hashPassword(password);
     const token = generateToken();
 
-    listOfUsers.push({ username, email, password: hashedPassword });
+    listOfUsers.push({ username, email, password: hashedPassword, score: 0});
     localStorage.setItem("listOfUsers", JSON.stringify(listOfUsers));
     localStorage.setItem("sessionToken", token);
 
