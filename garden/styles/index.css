@@ -128,31 +128,61 @@ a:hover {
 
 /*Phone*/
 @media (max-width: 480px) {
+    main {
+        padding: 0 15px;
+    }
+
+
+    h1{
+        font-size: 1.8rem;
+        margin-bottom: 2px;
+    }
+
     #timer {
-        font-size: 2rem;
+        font-size: 3.5rem;
+    }
+
+    #features h1{
+        font-size: 1.2rem;     
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    #features h3{
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+        text-align: left;
+    }
+
+    #features p{
+        font-size: 0.85rem;   
+        line-height: 1.4;
+        margin-bottom: 20px;
     }
 
     #timer-box {
-        width: 250px;
+        width: 280px;
+        padding: 30px 10px;
     }
 
     #timer-buttons{
-        width: 200px;
+        width: 100%;
         flex-direction: column;
         align-items: center;
-        row-gap: 5px;
+        row-gap: 10px;
     }
 
     #timer-buttons button{
-        padding: 10px;
+        padding: 12px;
         width: 100%;
     }
 
     img {
-        width: 55%;
+        width: 65%;
+        margin: 0 auto;
     }
 
     h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
