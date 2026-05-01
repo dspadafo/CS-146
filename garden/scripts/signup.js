@@ -1,6 +1,19 @@
 const form = document.getElementById("signup-form");
 const errorMsg = document.getElementById("error");
 
+//vulnerabilities fix: hash passwords
+async function hashPassword(password) {
+    const encoded = new TextEncoder().encode(password);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", encoded);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+//vulnerabilities fix: store a randomized session token
+function generateToken() {
+    return crypto.randomUUID();
+}
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -20,9 +33,18 @@ form.addEventListener("submit", (e) => {
 
     const listOfUsers = JSON.parse(localStorage.getItem("listOfUsers")) || [];
 
-    listOfUsers.push({username, email, password})
-    
+    const exists = listOfUsers.some(u => u.username === username || u.email === email);
+    if (exists) {
+        errorMsg.textContent = "Username or email already in use.";
+        return;
+    }
+
+    const hashedPassword = await hashPassword(password);
+    const token = generateToken();
+
+    listOfUsers.push({ username, email, password: hashedPassword });
     localStorage.setItem("listOfUsers", JSON.stringify(listOfUsers));
+    localStorage.setItem("sessionToken", token);
 
     setTimeout(() => {
         window.location.href = "./index.html";
