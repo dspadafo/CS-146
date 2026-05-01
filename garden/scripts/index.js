@@ -67,8 +67,9 @@ function sessionDone() {
 
 startButton.addEventListener("click", function() {
     if (startButton.textContent === "Start") {
-        paused = false;
+        
         switchMode(sessionData.mode);
+        paused = false;
         startButton.textContent = "Pause";
     } else {
         killTime();
