@@ -55,6 +55,7 @@ function sessionDone() {
     if (sessionData.mode === "pomodoro") {
         sessionData.pomodoroRounds++;
         // Has 3 short breaks and then 1 long break
+        addPoints(25); // add points after finishing a pomodoro session
         if (sessionData.pomodoroRounds % 4 === 0) {
             switchMode("longBreak");
         } else {
@@ -62,6 +63,18 @@ function sessionDone() {
         }
     } else {
         switchMode("pomodoro");
+    }
+}
+
+function addPoints(pts) {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) return;
+
+    const listOfUsers = JSON.parse(localStorage.getItem("listOfUsers")) || [];
+    const i = listOfUsers.findIndex(x => x.username === user.username);
+    if (i !== -1) {
+        listOfUsers[i].score = (listOfUsers[i].score || 0) + pts;
+        localStorage.setItem("listOfUsers", JSON.stringify(listOfUsers));
     }
 }
 
