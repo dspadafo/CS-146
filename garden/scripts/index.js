@@ -41,9 +41,9 @@ function killTime() {
 
 function switchMode(newMode) {
     var newTime;
-    if (newMode === "shortBreak") newTime = 2; //300;
-    else if (newMode === "longBreak") newTime = 3; //1200;
-    else if (newMode === "pomodoro" && !paused) newTime = 1; //1500;
+    if (newMode === "shortBreak") newTime = 300;
+    else if (newMode === "longBreak") newTime = 1200;
+    else if (newMode === "pomodoro" && !paused) newTime = 1500;
     else newTime = currentTime;
 
     sessionData.mode = newMode;
