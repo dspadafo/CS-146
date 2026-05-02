@@ -10,12 +10,16 @@ var resetButton = document.getElementById("reset-button");
 var changeButton = document.getElementById("change-name-button");
 
 
-const folderPath = "./images/flower_imgs/flower ";
+const folderPath = "./images/flower_imgs/flower";
 const currentFlower = document.getElementById("flower");
 const flowerImgs = [];
 const motivationalText = document.getElementById("motivational-text");
 
-for(let i = 1; i <= 16; i++) flowerImgs.push(`${folderPath}(${i}).png`);
+const sessionToken = localStorage.getItem("sessionToken");
+const listOfUsers = JSON.parse(localStorage.getItem("listOfUsers")) || [];
+const user = listOfUsers.find(u => u.token === sessionToken) || null;
+
+for(let i = 1; i <= 16; i++) flowerImgs.push(`${folderPath}_${i}.png`);
 
 var sessionData = {
     mode: "pomodoro",
@@ -76,6 +80,8 @@ function sessionDone() {
         if (sessionData.pomodoroRounds % 4 === 0) {
             switchMode("longBreak");
             currentFlower.src = flowerImgs[Math.floor(Math.random() * 16)];
+            let formattedPath = currentFlower.src.split('/').pop();
+            if(!(user.unlocked.includes(formattedPath)))  user.unlocked.push(formattedPath);
         } else {
             switchMode("shortBreak");
         }
@@ -86,8 +92,6 @@ function sessionDone() {
 }
 
 function addPoints(pts) {
-    const listOfUsers = JSON.parse(localStorage.getItem("listOfUsers")) || [];
-    const user = listOfUsers.find(u => u.token === sessionToken) || null;
     if (!user) return;      // not logged in
 
     user.score = (user.score || 0) + pts;
