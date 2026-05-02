@@ -9,6 +9,12 @@ var startButton = document.getElementById("start-button");
 var resetButton = document.getElementById("reset-button");
 var changeButton = document.getElementById("change-name-button");
 
+
+const folderPath = "./images/flower_imgs/flower ";
+const currentFlower = document.getElementById("flower");
+const flowerImgs = [];
+for(let i = 1; i <= 16; i++) flowerImgs.push(`${folderPath}(${i}).png`);
+
 var sessionData = {
     mode: "pomodoro",
     pomodoroRounds: 0
@@ -30,7 +36,7 @@ function startTime(duration) {
             if (remaining < 0) {
                 sessionDone();
             }
-        }, 1000);
+        }, 0.01);
     }
 }
 
@@ -58,11 +64,13 @@ function sessionDone() {
         addPoints(25); // add points after finishing a pomodoro session
         if (sessionData.pomodoroRounds % 4 === 0) {
             switchMode("longBreak");
+            currentFlower.src = flowerImgs[Math.floor(Math.random() * 16)];
         } else {
             switchMode("shortBreak");
         }
     } else {
         switchMode("pomodoro");
+        currentFlower.src = "./images/flowerpot.png";
     }
 }
 
