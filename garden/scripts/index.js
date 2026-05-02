@@ -41,9 +41,9 @@ function killTime() {
 
 function switchMode(newMode) {
     var newTime;
-    if (newMode === "shortBreak") newTime = 300;
-    else if (newMode === "longBreak") newTime = 1200;
-    else if (newMode === "pomodoro" && !paused) newTime = 1500;
+    if (newMode === "shortBreak") newTime = 2; //300;
+    else if (newMode === "longBreak") newTime = 3; //1200;
+    else if (newMode === "pomodoro" && !paused) newTime = 1; //1500;
     else newTime = currentTime;
 
     sessionData.mode = newMode;
@@ -67,15 +67,12 @@ function sessionDone() {
 }
 
 function addPoints(pts) {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (!user) return;
-
     const listOfUsers = JSON.parse(localStorage.getItem("listOfUsers")) || [];
-    const i = listOfUsers.findIndex(x => x.username === user.username);
-    if (i !== -1) {
-        listOfUsers[i].score = (listOfUsers[i].score || 0) + pts;
-        localStorage.setItem("listOfUsers", JSON.stringify(listOfUsers));
-    }
+    const user = listOfUsers.find(u => u.token === sessionToken) || null;
+    if (!user) return;      // not logged in
+
+    user.score = (user.score || 0) + pts;
+    localStorage.setItem("listOfUsers", JSON.stringify(listOfUsers));
 }
 
 startButton.addEventListener("click", function() {
