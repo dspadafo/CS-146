@@ -42,9 +42,9 @@ form.addEventListener("submit", async (e) => {
     const hashedPassword = await hashPassword(password);
     const token = generateToken();
 
-    listOfUsers.push({ username, email, password: hashedPassword, score: 0});
+    listOfUsers.push({ username, email, token: token, password: hashedPassword, score: 0});
     localStorage.setItem("listOfUsers", JSON.stringify(listOfUsers));
-    localStorage.setItem("sessionToken", token);
+    localStorage.setItem("sessionToken", null);
 
     setTimeout(() => {
         window.location.href = "./index.html";
