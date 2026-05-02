@@ -76,6 +76,10 @@ img {
     width: 180px;
 }
 
+#tree-name{
+    font-size: 2rem;
+}
+
 #timer-buttons{
     display: flex;
     justify-content: space-around;
@@ -140,6 +144,14 @@ a:hover {
 
     #timer {
         font-size: 3.5rem;
+    }
+
+    #tree-name{
+        font-size: 1.5rem;
+    }
+
+    #mode{
+        font-size: 0.75rem;
     }
 
     #features h1{

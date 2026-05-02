@@ -13,6 +13,8 @@ var changeButton = document.getElementById("change-name-button");
 const folderPath = "./images/flower_imgs/flower ";
 const currentFlower = document.getElementById("flower");
 const flowerImgs = [];
+const motivationalText = document.getElementById("motivational-text");
+
 for(let i = 1; i <= 16; i++) flowerImgs.push(`${folderPath}(${i}).png`);
 
 var sessionData = {
@@ -36,7 +38,7 @@ function startTime(duration) {
             if (remaining < 0) {
                 sessionDone();
             }
-        }, 0.01);
+        }, 1000);
     }
 }
 
@@ -47,9 +49,18 @@ function killTime() {
 
 function switchMode(newMode) {
     var newTime;
-    if (newMode === "shortBreak") newTime = 300;
-    else if (newMode === "longBreak") newTime = 1200;
-    else if (newMode === "pomodoro" && !paused) newTime = 1500;
+    if (newMode === "shortBreak"){
+        newTime = 300;
+        motivationalText.textContent = "Take a break!";
+    }
+    else if (newMode === "longBreak"){
+        newTime = 1200;
+        motivationalText.textContent = "Behold, the fruits of your labor! Take a longer break!";
+    }
+    else if (newMode === "pomodoro" && !paused){
+        newTime = 1500;
+        motivationalText.textContent = "Time to work!";
+    }
     else newTime = currentTime;
 
     sessionData.mode = newMode;

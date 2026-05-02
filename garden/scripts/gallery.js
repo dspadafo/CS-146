@@ -14,6 +14,7 @@ function addPlantsToPage(){
         const flowerImg = document.createElement("li");
         flowerImg.classList.add("splide__slide");
         flowerImg.innerHTML = `<img src="${img}" alt="flower">`;
+        flowerImg.style.filter = "blur(10px)";
         galleryContainer.appendChild(flowerImg);
     });
 }
