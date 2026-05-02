@@ -17,7 +17,8 @@ function addPlantsToPage(){
     flowerImgs.forEach(img => {
         const flowerImg = document.createElement("li");
         flowerImg.classList.add("splide__slide");
-        if(!(user.unlocked.includes(img.split('/').pop()))) flowerImg.style.filter = "blur(10px)";
+        flowerImg.innerHTML = `<img src="${img}" alt="flower">`;
+        if((user) && !(user.unlocked.includes(img.split('/').pop()))) flowerImg.style.filter = "blur(10px)";
         flowerImg.innerHTML = `<img src="${img}" alt="flower">`;
         galleryContainer.appendChild(flowerImg);
     });
